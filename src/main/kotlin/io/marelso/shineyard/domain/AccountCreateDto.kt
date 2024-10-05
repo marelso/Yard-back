@@ -1,4 +1,4 @@
-package io.marelso.shineyard
+package io.marelso.shineyard.domain
 
 data class AccountCreateDto(
     val firstName: String,
