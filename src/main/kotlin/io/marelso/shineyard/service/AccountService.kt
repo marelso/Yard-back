@@ -14,15 +14,19 @@ class AccountService(
     private val passwordEncoder: PasswordEncoder
 ) {
     fun save(request: AccountCreateDto): Account {
-        return accountRepository.save(
-            Account(
-                firstName = request.firstName,
-                lastName = request.lastName,
-                pictureUrl = request.pictureUrl,
-                email = request.email,
-                password = passwordEncoder.encode(request.password),
-                accountDevices = listOf()
+        request.takeIf {
+            accountRepository.findByEmail(request.email) == null
+        }?.let {
+            return accountRepository.save(
+                Account(
+                    firstName = request.firstName,
+                    lastName = request.lastName,
+                    pictureUrl = request.pictureUrl,
+                    email = request.email,
+                    password = passwordEncoder.encode(request.password),
+                    accountDevices = listOf()
+                )
             )
-        )
+        } ?: throw RuntimeException("Username already created")
     }
 }
