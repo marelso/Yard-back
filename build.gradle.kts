@@ -26,6 +26,8 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
+	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("io.jsonwebtoken:jjwt:0.12.1")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
