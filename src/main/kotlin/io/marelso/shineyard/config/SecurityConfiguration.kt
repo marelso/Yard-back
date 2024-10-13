@@ -25,7 +25,8 @@ class SecurityConfiguration(
         "/webjars/**",
         "/v3/api-docs/**",
         "/swagger-ui/**",
-        "/auth/**"
+        "/auth/**",
+        "/api/v1/accounts/user",
     ).toTypedArray()
 
     @Bean
