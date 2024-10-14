@@ -1,6 +1,6 @@
 package io.marelso.shineyard.controller
 
-import io.marelso.shineyard.domain.AccountDto
+import io.marelso.shineyard.domain.dto.AccountDto
 import io.marelso.shineyard.service.AuthenticationService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
