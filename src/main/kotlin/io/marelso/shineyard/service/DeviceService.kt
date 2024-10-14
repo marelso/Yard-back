@@ -11,11 +11,12 @@ class DeviceService(
     fun getDeviceById(id: String): Device? = database.getDeviceById(id)
 
     fun findAllByIds(accountDevices: List<String>): List<Device> {
-        val devices = database.getDeviceById(accountDevices[0])
-
-
         return mutableListOf<Device>().apply {
-            add(devices)
+            accountDevices.map { device ->
+                getDeviceById(device)?.let {
+                    add(it)
+                }
+            }
         }
     }
 }
