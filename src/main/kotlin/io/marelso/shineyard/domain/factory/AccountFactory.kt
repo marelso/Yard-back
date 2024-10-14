@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component
 
 @Component
 class AccountFactory {
-    fun from(account: Account, devices: List<Device>, jwt: String ): AccountDto {
+    fun from(account: Account, devices: List<Device>, jwt: String): AccountDto {
         return AccountDto(
             id = account.id,
             firstName = account.firstName,
