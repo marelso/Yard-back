@@ -2,7 +2,7 @@ package io.marelso.shineyard.service
 
 import io.marelso.shineyard.domain.Account
 import io.marelso.shineyard.domain.AccountCreateDto
-import io.marelso.shineyard.domain.AccountDto
+import io.marelso.shineyard.domain.dto.AccountDto
 import io.marelso.shineyard.repository.AccountRepository
 import lombok.RequiredArgsConstructor
 import org.springframework.data.repository.findByIdOrNull

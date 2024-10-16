@@ -11,7 +11,7 @@ class DeviceService(private val database: RemoteRepository) {
     fun findAllByIds(accountDevices: List<String>): List<Device> = mutableListOf<Device>().apply {
         accountDevices.map { device ->
             getDeviceById(device)?.let {
-                add(it)
+                add(it.apply { id = device })
             }
         }
     }
