@@ -34,6 +34,9 @@ dependencies {
 
 	implementation("org.springframework.cloud:spring-cloud-starter-openfeign:4.1.3")
 
+	implementation("com.amazonaws:aws-java-sdk-s3:1.12.470")
+	implementation("com.amazonaws:aws-java-sdk-sqs:1.12.638")
+
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0")
 
 	compileOnly("org.projectlombok:lombok")
