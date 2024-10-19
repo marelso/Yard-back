@@ -1,5 +1,6 @@
 package io.marelso.shineyard.filter
 
+import io.marelso.shineyard.config.SecurityConfiguration.Companion.AUTH_WHITELIST
 import io.marelso.shineyard.service.AccountSecurityService
 import io.marelso.shineyard.service.TokenService
 import jakarta.servlet.FilterChain
@@ -24,8 +25,8 @@ class JwtRequestFilter(
     ) {
         val header = request.getHeader("Authorization").orEmpty()
 
-        if (header.containsBearerToken()) {
-            val jwtToken = header.getToken()
+        if (header.containsBearerToken() && request.requestURI.isWhiteList().not()) {
+                val jwtToken = header.getToken()
             val username = jwtUtil.extractEmail(jwtToken)
 
             if (SecurityContextHolder.getContext().authentication == null) {
@@ -39,6 +40,8 @@ class JwtRequestFilter(
         }
         filterChain.doFilter(request, response)
     }
+
+    private fun String.isWhiteList() = AUTH_WHITELIST.contains(this)
 
     private fun String.containsBearerToken() = this.startsWith("Bearer ")
 

@@ -9,4 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable
 interface RemoteRepository {
     @GetMapping("/ESP32_Devices/{deviceId}.json")
     fun getDeviceById(@PathVariable deviceId: String): Device
+
+    @GetMapping("/ESP32_Devices.json")
+    fun getAllDevices(): Map<String, Device>
 }
